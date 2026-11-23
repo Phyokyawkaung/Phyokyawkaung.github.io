@@ -3,8 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Phyo Kyaw Kaung — Portfolio</title>
-<meta name="description" content="Computer science student at UIT. Cybersecurity, AI, typesetting and photography.">
+<title>Phyo Kyaw Kaung — CS student · Security &amp; AI · Yangon</title>
+<meta name="description" content="Computer science student at the University of Information Technology, Yangon. Cybersecurity and AI projects, CTF player, ISO/IEC 27001 associate. See projects, experience and how to get in touch.">
+<meta property="og:type" content="website"><meta property="og:title" content="Phyo Kyaw Kaung — CS student · Security &amp; AI · Yangon"><meta property="og:description" content="Security and AI projects, CTF player, ISO/IEC 27001 associate. Projects, experience, résumé and contact.">
+<meta name="theme-color" content="#efe4d0">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Phyo Kyaw Kaung","jobTitle":"Computer Science student","affiliation":{"@type":"CollegeOrUniversity","name":"University of Information Technology"},"email":"phyokyawkaung@uit.edu.mm","address":{"@type":"PostalAddress","addressLocality":"Yangon","addressCountry":"MM"},"sameAs":["https://github.com/Phyokyawkaung"]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Doto:wght@100..900&family=Inter:wght@400;500&family=Space+Mono&family=Shippori+Mincho:wght@500&family=Noto+Sans+Myanmar&display=swap" rel="stylesheet">
@@ -18,8 +21,14 @@ a{color:inherit;text-decoration:none}
 .m{font:400 11px/1.5 "Space Mono",monospace;letter-spacing:.16em;text-transform:uppercase}
 .dm{font-family:Doto,"Space Mono",monospace;font-weight:600}
 @media (hover:hover){body,a,button,canvas{cursor:none}}
-#cur{position:fixed;left:0;top:0;width:12px;height:12px;border-radius:50%;background:var(--accent);pointer-events:none;z-index:99;transform:translate(-50%,-50%);transition:width .3s,height .3s;display:grid;place-items:center;font:400 10px "Space Mono",monospace;letter-spacing:.1em;color:#fff}
-#cur.big{width:78px;height:78px}
+#cur{position:fixed;left:0;top:0;pointer-events:none;z-index:99;transform:translate(-50%,-50%);opacity:0;transition:opacity .25s}
+#cur .cg{display:grid;grid-template-columns:repeat(5,4px);gap:3px;transition:transform .2s cubic-bezier(.2,.8,.2,1)}
+#cur .cg i{width:4px;height:4px;border-radius:50%;background:var(--fg);box-shadow:0 0 0 1.5px rgba(239,228,208,.95);opacity:0;transform:scale(.2);transition:opacity .18s,transform .22s cubic-bezier(.2,1.6,.4,1)}
+#cur .cg i.on{opacity:1;transform:scale(1)}
+#cur.press .cg{transform:scale(.72)}
+#cur.inv .cg i{background:#efe4d0;box-shadow:0 0 0 1.5px rgba(27,23,18,.9)}
+#cur .cl{position:absolute;left:30px;top:16px;font:400 10px "Space Mono",monospace;letter-spacing:.14em;text-transform:uppercase;background:var(--bg);color:var(--fg);border:1px solid var(--fg);border-radius:99px;padding:3px 10px;white-space:nowrap;opacity:0;transform:translateX(-6px);transition:opacity .2s,transform .25s cubic-bezier(.2,.8,.2,1)}
+#cur.lab .cl{opacity:1;transform:none}
 @media (hover:none){#cur{display:none}}
 nav{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:18px 5vw;z-index:10;background:linear-gradient(var(--bg),transparent)}
 nav a:hover{color:var(--accent)}
@@ -267,29 +276,74 @@ nav button.on,.tools button.on{background:var(--fg);color:var(--bg)}
  .bits .bit{flex:0 0 84%;scroll-snap-align:center;min-height:280px}
 }
 @media (max-width:380px){.widget{display:block}.widget .time{font-size:56px}.widget .m{font-size:10px}.hero h1{font-size:24vw}}
+.side{position:absolute;right:5vw;top:14vh;width:clamp(230px,27vw,370px);display:flex;flex-direction:column;gap:22px}
+.side .widget{position:static;width:100%}
+.pitch p{font:500 clamp(18px,1.7vw,24px)/1.25 "Bodoni Moda",serif;letter-spacing:-.01em}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.btn{font:400 11px "Space Mono",monospace;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--fg);border-radius:99px;padding:11px 18px;background:rgba(255,255,255,.25);color:inherit;transition:background .25s,color .25s,border-color .25s,transform .2s;display:inline-flex;gap:8px;align-items:center;min-height:40px}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:#fff}
+@media (hover:hover){.btn:hover{background:var(--fg);color:var(--bg);border-color:var(--fg)}}
+.btn:active{transform:scale(.96)}
+.nl a.pill{background:var(--accent);color:#fff;border-radius:99px;padding:6px 14px}
+.nl a.pill:hover{background:var(--fg);color:#fff}
+.lead{font:500 clamp(26px,4vw,56px)/1.1 "Bodoni Moda",serif;letter-spacing:-.02em;max-width:18em;margin-bottom:5vh}
+.lead i{color:var(--accent)}
+.paths{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:5vh}
+.path{font:400 12px "Space Mono",monospace;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--fg);border-radius:99px;padding:12px 22px;background:rgba(255,255,255,.25);color:inherit;transition:background .25s,color .25s,border-color .25s,transform .2s;min-height:42px}
+.path.on{background:var(--fg);color:var(--bg)}
+@media (hover:hover){.path:hover:not(.on){border-color:var(--accent);color:var(--accent)}}
+.path:active{transform:scale(.95)}
+.brief{border:1px solid var(--fg);border-radius:30px;padding:clamp(22px,3vw,40px);background:rgba(255,255,255,.25);display:grid;grid-template-columns:1fr 1.6fr;gap:3vw;align-items:start}
+.bf-h{font-size:clamp(34px,4.6vw,68px);line-height:1;color:var(--accent);min-height:1em}
+.bf-l{list-style:none;display:grid;gap:14px}
+.bf-l li{position:relative;padding-left:26px;font-size:clamp(15px,1.4vw,18px);animation:li .6s both;animation-delay:calc(var(--i)*90ms)}
+.bf-l li::before{content:"";position:absolute;left:0;top:.55em;width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent)}
+@keyframes li{from{opacity:0;transform:translateX(-12px)}}
+#bc{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:10px;border-top:1px dotted var(--fg);padding-top:20px}
+.rec>span:not(.dm)::after{content:"   ● for you";color:var(--accent);animation:pu 2s ease-in-out infinite}
+.why{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:4vh}
+.why button{font:400 11px "Space Mono",monospace;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--fg);background:none;border-radius:99px;padding:10px 18px;color:inherit;transition:background .25s,color .25s,border-color .25s;min-height:40px}
+.why button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+@media (hover:hover){.why button:hover:not(.on){border-color:var(--accent);color:var(--accent)}}
+@media (max-width:1024px){.side{width:clamp(220px,28vw,280px)}}
+@media (max-width:760px){
+ .side{position:static;width:100%;gap:14px;margin-bottom:3vh}
+ .pitch p{font-size:20px}
+ .brief{grid-template-columns:1fr}
+ .why button,.path{flex:0 1 auto}
+}
 </style>
 </head>
 <body>
 <div id="boot" aria-hidden="true"><div class="bn dm">000</div><div class="bd"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="bl m">Phyo Kyaw Kaung · Portfolio</div></div>
 <canvas id="grid" aria-hidden="true"></canvas>
 <div id="lp" aria-hidden="true"></div>
-<div id="cur"></div>
-<nav class="m"><a href="#top" class="dm" data-c="TOP">P.K.K</a><span class="sec m" id="sec">00 / Index</span><span class="nl"><a href="#work">Work</a> &nbsp; <a href="#xp">Experience</a> &nbsp; <a href="#contact">Contact</a></span><button id="mn" aria-label="Open menu">Menu</button></nav>
+<div id="cur"><div class="cg"></div><span class="cl"></span></div>
+<nav class="m"><a href="#top" class="dm" data-c="TOP">P.K.K</a><span class="sec m" id="sec">00 / Index</span><span class="nl"><a href="#work">Work</a> &nbsp; <a href="#xp">Experience</a> &nbsp; <a href="#contact" class="pill">Contact</a></span><button id="mn" aria-label="Open menu">Menu</button></nav>
 <div id="menu" class="m" aria-hidden="true"><button id="mc">Close</button><a href="#work"><span class="dm">02</span>Work</a><a href="#xp"><span class="dm">03</span>Experience</a><a href="#small"><span class="dm">06</span>Fun</a><a href="#glyph"><span class="dm">07</span>Glyph</a><a href="#contact"><span class="dm">08</span>Contact</a><div class="mf"><span>Yangon, Myanmar</span></div></div>
 
 <header class="hero" id="top">
-  <div class="widget" aria-label="Local time" data-c="DRAG">
+  <div class="side"><div class="widget" aria-label="Local time" data-c="DRAG">
     <i class="led" id="led" data-c="TAP"></i>
     <div class="time" id="t1">--:--</div>
     <span class="m" id="dt">Yangon</span>
     <span class="m" id="t2">Tokyo --:--</span>
     <span class="m" style="opacity:.55">Drag me</span>
   </div>
+  <div class="pitch"><p>CS student in Yangon building security and AI projects, with an eye for type and design.</p><div class="cta"><a class="btn pri" href="#brief" data-c="GO">Start here ↓</a><a class="btn" data-mail href="mailto:phyokyawkaung@uit.edu.mm" data-c="MAIL">Email me</a><a class="btn" href="Phyo_Kyaw_Kaung_CV.pdf" target="_blank" rel="noopener" data-c="PDF">Résumé</a></div></div>
+  </div>
   <h1 id="name" aria-label="Phyo Kyaw Kaung">Phyo<br>Kyaw<br>Kaung</h1>
   <div class="hb"><div class="role"><span class="dm">●</span><span class="m" id="role">CTF Player</span><span class="cue m">Scroll <i>↓</i></span></div><div class="meta m"><span>Portfolio — Vol. 01</span><span>CS Student, UIT</span><span>CTF Player</span><span>Myanmar</span></div></div>
 </header>
 
 <div class="tk" aria-hidden="true"><div class="tkr" data-w="Cyber Security|Artificial Intelligence|Typography|Photography"></div></div>
+
+<section id="brief">
+  <div class="label m rv"><span class="dm">00</span><span>Start here</span></div>
+  <p class="lead rv">Who's visiting? <i>Pick one</i> and I'll show what matters.</p>
+  <div class="paths rv" role="group" aria-label="Choose your path"><button class="path" data-p="hire">Hiring</button><button class="path" data-p="collab">Collaborating</button><button class="path" data-p="ctf">CTF / student</button><button class="path on" data-p="look">Just looking</button></div>
+  <div class="brief rv" id="bf" aria-live="polite"><div class="bf-h dm" id="bh">…</div><ul class="bf-l" id="bl"></ul><div id="bc"></div></div>
+</section>
 
 <section class="about" id="about">
   <div class="label m rv"><span class="dm">01</span><span>About</span></div>
@@ -378,7 +432,8 @@ nav button.on,.tools button.on{background:var(--fg);color:var(--bg)}
 <footer id="contact">
   <div class="label m"><span class="dm">08</span><span>Contact</span></div>
   <div class="thanks" aria-label="Thank you">Thank you</div>
-  <a class="big" id="mag" href="mailto:phyokyawkaung@uit.edu.mm" data-c="MAIL">phyokyawkaung@uit.edu.mm</a>
+  <div class="why m" id="why"><span>I'm writing about</span><button data-r="Role or internship">A role</button><button data-r="Project collaboration">A project</button><button data-r="CTF team-up">A CTF</button><button data-r="Just saying hi">Hi</button></div>
+  <a class="big" id="mag" data-mail href="mailto:phyokyawkaung@uit.edu.mm" data-c="MAIL">phyokyawkaung@uit.edu.mm</a>
   <div class="meta m" style="margin-top:6vh"><a href="https://github.com/Phyokyawkaung" target="_blank" rel="noopener">GitHub ↗</a><span>Set in Bodoni Moda, Doto &amp; Inter — Yangon</span><span>© 2026 Phyo Kyaw Kaung</span></div>
 </footer>
 
@@ -397,9 +452,17 @@ if(p<1)requestAnimationFrame(f);else Promise.race([document.fonts.ready,new Prom
 // name letters
 const nm=$('#name');nm.innerHTML=nm.innerHTML.split('<br>').map(w=>[...w].map(c=>`<span aria-hidden="true">${c}</span>`).join('')).join('<br>');
 // cursor
-const cur=$('#cur');let x=-999,y=-999,cx=0,cy=0;
-addEventListener('pointermove',e=>{x=e.clientX;y=e.clientY});addEventListener('pointerdown',e=>{x=e.clientX;y=e.clientY});['pointerup','pointercancel'].forEach(v=>addEventListener(v,e=>{if(e.pointerType=='touch')setTimeout(()=>{x=y=-999},700)}));
-$$('[data-c]').forEach(a=>{a.onmouseenter=()=>{cur.classList.add('big');cur.textContent=a.dataset.c};a.onmouseleave=()=>{cur.classList.remove('big');cur.textContent=''}});
+const cur=$('#cur'),cg=$('#cur .cg'),cl=$('#cur .cl');let x=-999,y=-999,cx=0,cy=0,cshown=false;
+addEventListener('pointermove',e=>{x=e.clientX;y=e.clientY;if(!cshown){cshown=true;cx=x;cy=y;cur.style.opacity=1}});document.documentElement.addEventListener('mouseleave',()=>{cur.style.opacity=0;cshown=false});addEventListener('pointerdown',e=>{x=e.clientX;y=e.clientY});['pointerup','pointercancel'].forEach(v=>addEventListener(v,e=>{if(e.pointerType=='touch')setTimeout(()=>{x=y=-999},700)}));
+// dot-matrix cursor: a 5x5 glyph that morphs with whatever is under it
+const GLY={plus:[2,7,10,11,12,13,14,17,22],arrow:[2,3,4,9,14,8,12,16,20],bar:[1,2,3,7,12,17,21,22,23],move:[2,6,7,8,10,11,12,13,14,16,17,18,22]};
+for(let i=0;i<25;i++)cg.appendChild(document.createElement('i'));
+const cdots=[...cg.children];let curKey='';
+const curSet=(mode,label)=>{const on=new Set(GLY[mode]);cdots.forEach((d,i)=>{d.classList.toggle('on',on.has(i));d.style.transitionDelay=(i%5*14+Math.floor(i/5)*14)+'ms'});cl.textContent=label||'';cur.classList.toggle('lab',!!label)};
+curSet('plus','');
+document.addEventListener('pointerover',e=>{if(e.pointerType==='touch')return;const t=e.target;if(!t.closest)return;const d=t.closest('[data-c]'),lab=d?d.dataset.c:'';
+const mode=d?(lab==='DRAG'?'move':'arrow'):t.closest('input,textarea,[contenteditable]')?'bar':t.closest('a,button')?'arrow':'plus';cur.classList.toggle('inv',!!t.closest('.btn,.path.on,.tools button,.nl a.pill'));const key=mode+'|'+lab;if(key!==curKey){curKey=key;curSet(mode,lab)}});
+addEventListener('pointerdown',()=>cur.classList.add('press'));addEventListener('pointerup',()=>cur.classList.remove('press'));
 // hero letters dodge the cursor
 const ls=$$('#name span'),st=ls.map(()=>({x:0,y:0,r:0,w:400}));
 (function l(){cx+=(x-cx)*.28;cy+=(y-cy)*.28;cur.style.left=cx+'px';cur.style.top=cy+'px';
@@ -425,9 +488,9 @@ const gfit=()=>{const d=devicePixelRatio||1;GW=innerWidth;GH=innerHeight;gc.widt
 addEventListener('click',e=>{if(!e.target.closest('a,button,canvas,input,.widget'))rip.push({x:e.clientX,y:e.clientY,t:performance.now()})});
 (function gd(){if(!rip.length&&x===gdx&&y===gdy&&!gdForce){if(!calm)requestAnimationFrame(gd);return}gdx=x;gdy=y;gdForce=false;gx.clearRect(0,0,GW,GH);const now=performance.now(),hot=[];rip=rip.filter(r=>now-r.t<1700);
 gx.fillStyle='rgba(27,23,18,.2)';gx.beginPath();
-for(let i=SP/2;i<GW;i+=SP)for(let j=SP/2;j<GH;j+=SP){let k=0;const dd=Math.hypot(i-x,j-y);if(dd<130)k=1-dd/130;for(const r of rip){const a=(now-r.t)/1700,w=Math.abs(Math.hypot(i-r.x,j-r.y)-a*Math.max(GW,GH)*.6);if(w<70)k=Math.max(k,(1-w/70)*(1-a))}
-if(k>.05)hot.push([i,j,k]);else{gx.moveTo(i+1,j);gx.arc(i,j,1,0,6.283)}}
-gx.fill();hot.forEach(([i,j,k])=>{gx.fillStyle=`rgba(215,25,33,${.3+k*.65})`;gx.beginPath();gx.arc(i,j,1+k*3.6,0,6.283);gx.fill()});
+for(let i=SP/2;i<GW;i+=SP)for(let j=SP/2;j<GH;j+=SP){let kc=0,kr=0;const dd=Math.hypot(i-x,j-y);if(dd<130)kc=1-dd/130;for(const r of rip){const a=(now-r.t)/1700,w=Math.abs(Math.hypot(i-r.x,j-r.y)-a*Math.max(GW,GH)*.6);if(w<70)kr=Math.max(kr,(1-w/70)*(1-a))}const k=Math.max(kc,kr);
+if(k>.05)hot.push([i,j,kc,kr]);else{gx.moveTo(i+1,j);gx.arc(i,j,1,0,6.283)}}
+gx.fill();hot.forEach(([i,j,kc,kr])=>{const red=kr>kc,k=red?kr:kc;gx.fillStyle=red?`rgba(215,25,33,${.3+k*.65})`:`rgba(27,23,18,${.3+k*.6})`;gx.beginPath();gx.arc(i,j,1+k*(red?3.6:2.8),0,6.283);gx.fill()});
 if(!calm)requestAnimationFrame(gd)})();
 // optional UI sounds
 let snd=!calm,ac;const AC=window.AudioContext||window.webkitAudioContext;const unlock=()=>{if(!ac)ac=new AC();if(ac.state=='suspended')ac.resume()};['pointerdown','keydown','touchstart'].forEach(v=>addEventListener(v,unlock,{passive:true}));
@@ -517,7 +580,7 @@ const tko=tks.map(()=>0);let tky=scrollY;
 if(!calm)(function tk(){const dy=scrollY-tky;tky=scrollY;tks.forEach((t,i)=>{const u=t.scrollWidth/8,sp=.7+Math.min(Math.abs(dy),50)*.45,dir=(i%2?1:-1)*(dy<0?-1:1);let o=(tko[i]+dir*sp)%u;if(o>0)o-=u;tko[i]=o;t.style.transform=`translateX(${o}px)`});requestAnimationFrame(tk)})();
 // LED progress + section readout
 const lp=$('#lp');for(let i=0;i<24;i++)lp.appendChild(document.createElement('i'));const lpd=[...lp.children];
-const secs=[['top','00 / Index'],['about','01 / About'],['work','02 / Work'],['xp','03 / Experience'],['cert','04 / Certifications'],['lang','05 / Languages'],['small','06 / Fun things'],['glyph','07 / Glyph'],['contact','08 / Contact']].map(([i,t])=>[$('#'+i),t]);
+const secs=[['top','00 / Index'],['brief','00 / Start here'],['about','01 / About'],['work','02 / Work'],['xp','03 / Experience'],['cert','04 / Certifications'],['lang','05 / Languages'],['small','06 / Fun things'],['glyph','07 / Glyph'],['contact','08 / Contact']].map(([i,t])=>[$('#'+i),t]);
 const secEl=$('#sec');let cs='00 / Index';secEl.dataset.t=cs;
 const track=()=>{const n=Math.round(scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight)*24);lpd.forEach((d,i)=>d.classList.toggle('on',i<n));
 let c=secs[0][1];secs.forEach(([el,t])=>{if(el.getBoundingClientRect().top<innerHeight*.45)c=t});if(c!==cs){cs=c;secEl.dataset.t=c;scr(secEl,420)}abUpd()};
@@ -569,15 +632,34 @@ document.addEventListener('click',e=>{const a=e.target.closest&&e.target.closest
 const rootEl=document.documentElement;let lsy=scrollY,sv=0,lsv=0;
 if(!calm)(function sk(){const dy=scrollY-lsy;lsy=scrollY;sv+=(Math.max(-1,Math.min(1,dy*.045))-sv)*.14;const v=Math.round(sv*100)/100;if(v!==lsv){lsv=v;rootEl.style.setProperty('--sk',v+'deg')}requestAnimationFrame(sk)})();
 // controls lean toward the cursor
-if(fine&&!calm){const mg2=$$('nav>a,.nl a,.tools button,.mini,.key');addEventListener('pointermove',e=>{mg2.forEach(el=>{const r=el.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;const dx=e.clientX-(r.left+r.width/2),dy=e.clientY-(r.top+r.height/2);el.style.translate=Math.hypot(dx,dy)<90?`${dx*.28}px ${dy*.28}px`:''})})}
+if(fine&&!calm){const mg2=$$('nav>a,.nl a,.tools button,.mini,.key,.btn,.path,.why button');addEventListener('pointermove',e=>{mg2.forEach(el=>{const r=el.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;const dx=e.clientX-(r.left+r.width/2),dy=e.clientY-(r.top+r.height/2);el.style.translate=Math.hypot(dx,dy)<90?`${dx*.28}px ${dy*.28}px`:''})})}
 // headings rise out of a mask
 $$('.card h3,.li h3').forEach(h=>{h.innerHTML='<span class="mk"><span>'+h.innerHTML+'</span></span>'});
 // swipeable Fun things row (phones) with dot pager
 const bts=$('.bits'),pg2=$$('#pg2 i');
 bts.addEventListener('scroll',()=>{const c=bts.children[0],i=Math.round(bts.scrollLeft/(c.offsetWidth+14));pg2.forEach((d,k)=>d.classList.toggle('on',k==Math.min(i,pg2.length-1)))},{passive:true});
 pg2.forEach((d,k)=>d.onclick=()=>bts.children[k].scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'}));
+// ---- purpose: audience-aware briefing, contact reasons, résumé
+const CV='Phyo_Kyaw_Kaung_CV.pdf',MAIL='phyokyawkaung@uit.edu.mm';let reason='Hello from your portfolio';
+const mailHref=r=>`mailto:${MAIL}?subject=${encodeURIComponent('['+r+'] Hello Phyo')}&body=${encodeURIComponent('Hi Phyo,\n\n')}`;
+const setReason=r=>{reason=r;$$('[data-mail]').forEach(a=>a.href=mailHref(r));$$('#why button').forEach(b=>b.classList.toggle('on',b.dataset.r==r))};
+$$('#why button').forEach(b=>b.addEventListener('click',()=>{setReason(b.dataset.r);blip(660,.04)}));
+const PATHS={
+hire:{h:'The 20-second version',l:['Second-year CS student at the University of Information Technology (UIT), Yangon.','Security: ISO/IEC 27001:2022 Information Security Associate, CTF player, and builder of Minimax Defense.','Leadership: Vice President of the university Photography Club (2024–25), handling budgets, venues and logistics with senior staff.','Languages: Burmese (native), English (professional), Japanese (studying for N3).'],c:[['Email me','mail:Role or internship','pri'],['Résumé (PDF)','cv'],['See experience','#xp']],rec:['xp','cert','lang'],why:'Role or internship'},
+collab:{h:'What I have built',l:['Shop Decision AI: decision support for Myanmar online shop owners (JavaScript).','Pipilapu NASA: NASA Space Apps Challenge 2026, built with a team of five (Python).','Minimax Defense: moving-target defense using the Minimax algorithm (Python).','Also a PHP and MySQL website, and a weather-alert system for a robotic car.'],c:[['See projects','#work','pri'],['GitHub','https://github.com/Phyokyawkaung'],['Email me','mail:Project collaboration']],rec:['work'],why:'Project collaboration'},
+ctf:{h:'Flag hunters welcome',l:['I play CTFs, and I hid three flags in this page.','One lives in the clock widget, one in the Morse key, one in the Reflex game.','When you are done, beat my Snake score on the Glyph display.'],c:[['Take me to the games','#small','pri'],['Open the Glyph display','#glyph'],['Say hi','mail:CTF team-up']],rec:['small','glyph'],why:'CTF team-up'},
+look:{h:'The quick look',l:['Projects, a timeline, certifications and languages, in that order.','Then the toys: a cipher, a Morse key, a reflex game and a dot-matrix Snake.'],c:[['Take me to Projects','#work','pri'],['Résumé (PDF)','cv']],rec:[]}};
+const bh=$('#bh'),bl=$('#bl'),bc=$('#bc');
+const cta=(t,a,cls)=>{let e;if(a=='cv'){e=document.createElement('a');e.href=CV;e.target='_blank';e.rel='noopener'}else{e=document.createElement('a');if(a.startsWith('mail:')){e.href=mailHref(a.slice(5));e.dataset.mail=1;e.addEventListener('click',()=>setReason(a.slice(5)))}else if(a.startsWith('http')){e.href=a;e.target='_blank';e.rel='noopener'}else e.href=a}
+e.className='btn '+(cls||'');e.textContent=t;e.dataset.c='GO';return e};
+function pick(p){const d=PATHS[p];$$('.path').forEach(b=>b.classList.toggle('on',b.dataset.p==p));bh.dataset.t=d.h;if(calm)bh.textContent=d.h;else scr(bh,520);
+bl.innerHTML=d.l.map((t,i)=>`<li style="--i:${i}">${t}</li>`).join('');bc.innerHTML='';d.c.forEach(c=>bc.appendChild(cta(...c)));
+$$('.label.rec').forEach(l=>l.classList.remove('rec'));d.rec.forEach(id=>{const l=$('#'+id+' .label');if(l)l.classList.add('rec')});
+if(d.why)setReason(d.why);try{sessionStorage.setItem('pkk_path',p)}catch(e){}}
+$$('.path').forEach(b=>b.addEventListener('click',()=>{pick(b.dataset.p);blip(600,.04)}));
+let p0='look';try{p0=sessionStorage.getItem('pkk_path')||'look'}catch(e){}if(!PATHS[p0])p0='look';pick(p0);
 // CTF egg: tap the red LED three times
-const toast=t=>{const d=document.createElement('div');d.className='toast';d.textContent=t;document.body.appendChild(d);setTimeout(()=>d.remove(),5000)};
+const toast=t=>{$$('.toast').forEach(x=>x.remove());const d=document.createElement('div');d.className='toast';d.textContent=t;document.body.appendChild(d);setTimeout(()=>d.remove(),5000)};
 let hc=0;$('#led').onclick=()=>{if(++hc==3)toast('FLAG{typ0graphy_is_4rt}')};
 $('#led').style.cursor='pointer';
 console.log('%c● Psst, fellow CTF player: tap the red LED three times.','font:14px monospace;color:#d71921');
